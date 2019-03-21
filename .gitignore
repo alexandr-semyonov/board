@@ -12,5 +12,6 @@
 # игнорировать все .txt файлы в каталоге doc/
 #doc/**/*.txt
 
+!system/config.php
 admin/config.php
 config.php
