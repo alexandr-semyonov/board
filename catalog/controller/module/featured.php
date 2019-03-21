@@ -1,13 +1,20 @@
 <?php
 class ControllerModuleFeatured extends Controller {
 	protected function index($setting) {
+		static $module = 0;
+		
 		$this->language->load('module/featured'); 
 
       	$this->data['heading_title'] = $this->language->get('heading_title');
 		
-		$this->data['button_cart'] = $this->language->get('button_cart');
+		$this->data['text_sale'] = $this->language->get('text_sale');			
 		
-		$this->load->model('catalog/product'); 
+		$this->data['button_cart'] = $this->language->get('button_cart');
+
+        $this->data['position'] = $setting['position'];
+		$this->data['layout_id'] = $setting['layout_id'];
+		
+		$this->load->model('catalog/product');
 		
 		$this->load->model('tool/image');
 
@@ -53,6 +60,7 @@ class ControllerModuleFeatured extends Controller {
 					'product_id' => $product_info['product_id'],
 					'thumb'   	 => $image,
 					'name'    	 => $product_info['name'],
+					'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, 100) . '..',
 					'price'   	 => $price,
 					'special' 	 => $special,
 					'rating'     => $rating,
@@ -61,6 +69,8 @@ class ControllerModuleFeatured extends Controller {
 				);
 			}
 		}
+		
+		$this->data['module'] = $module++; 
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/featured.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/module/featured.tpl';

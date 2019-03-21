@@ -127,14 +127,7 @@ class ControllerProductManufacturer extends Controller {
 		$manufacturer_info = $this->model_catalog_manufacturer->getManufacturer($manufacturer_id);
 	
 		if ($manufacturer_info) {
-			if ($manufacturer_info['seo_title']) {
-				$this->document->setTitle($manufacturer_info['seo_title']);
-			} else {
-				$this->document->setTitle($manufacturer_info['name']);
-			}
-
-			$this->document->setDescription($manufacturer_info['meta_description']);
-			$this->document->setKeywords($manufacturer_info['meta_keyword']);
+			$this->document->setTitle($manufacturer_info['name']);
 			
 			$url = '';
 			
@@ -159,10 +152,6 @@ class ControllerProductManufacturer extends Controller {
 				'href'      => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url),
       			'separator' => $this->language->get('text_separator')
    			);
-
-			$this->data['seo_h1'] = $manufacturer_info['seo_h1'];
-
-			$this->data['description'] = html_entity_decode($manufacturer_info['description'], ENT_QUOTES, 'UTF-8');
 		
 			$this->data['heading_title'] = $manufacturer_info['name'];
 			
@@ -179,6 +168,7 @@ class ControllerProductManufacturer extends Controller {
 			$this->data['text_grid'] = $this->language->get('text_grid');			
 			$this->data['text_sort'] = $this->language->get('text_sort');
 			$this->data['text_limit'] = $this->language->get('text_limit');
+			$this->data['text_sale'] = $this->language->get('text_sale');				
 			  
 			$this->data['button_cart'] = $this->language->get('button_cart');
 			$this->data['button_wishlist'] = $this->language->get('button_wishlist');
@@ -285,17 +275,17 @@ class ControllerProductManufacturer extends Controller {
 			); 
 			
 			if ($this->config->get('config_review_status')) {
-			$this->data['sorts'][] = array(
-				'text'  => $this->language->get('text_rating_desc'),
-				'value' => 'rating-DESC',
+				$this->data['sorts'][] = array(
+					'text'  => $this->language->get('text_rating_desc'),
+					'value' => 'rating-DESC',
 					'href'  => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . '&sort=rating&order=DESC' . $url)
-			); 
-			
-			$this->data['sorts'][] = array(
-				'text'  => $this->language->get('text_rating_asc'),
-				'value' => 'rating-ASC',
+				); 
+				
+				$this->data['sorts'][] = array(
+					'text'  => $this->language->get('text_rating_asc'),
+					'value' => 'rating-ASC',
 					'href'  => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . '&sort=rating&order=ASC' . $url)
-			);
+				);
 			}
 			
 			$this->data['sorts'][] = array(

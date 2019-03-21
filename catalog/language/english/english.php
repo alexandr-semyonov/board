@@ -1,4 +1,29 @@
 <?php
+// Sellya Theme
+$_['text_sale']                  = 'Sale';
+$_['text_more']                  = 'More';
+$_['text_shop_now']              = 'Shop Now!';
+$_['text_login_s']               = 'Login';
+$_['text_logged_s']              = '<a href="%s">Welcome, %s</a> <a href="%s">Logout</a>';
+$_['text_register']              = 'Register';
+$_['text_order']                 = 'Order History';
+$_['text_compare']               = 'Product Compare (%s)'; 
+$_['text_location']              = 'Our Location';
+$_['text_menu_categories']       = 'Categories';
+$_['text_menu_brands']           = 'Brands';
+$_['text_menu_contact_us']       = 'Contact us';
+$_['text_menu_contacts']         = 'Contacts';
+$_['text_menu_contact_address']  = 'Address';
+$_['text_menu_contact_hours']    = 'Office Opening Hours';
+$_['text_menu_contact_form']     = 'Contact Form';
+$_['text_address']               = 'Address:';
+$_['text_email']                 = 'E-Mail:';
+$_['text_telephone']             = 'Telephone:';
+$_['text_fax']                   = 'Fax:';
+$_['text_next_product']          = 'Next';
+$_['text_previous_product']      = 'Previous';
+$_['text_product_viewed']        = 'Product viewed:';
+
 // Locale
 $_['code']                  = 'en';
 $_['direction']             = 'ltr';
@@ -23,8 +48,8 @@ $_['button_add_address']    = 'Add Address';
 $_['button_back']           = 'Back';
 $_['button_continue']       = 'Continue';
 $_['button_cart']           = 'Add to Cart';
-$_['button_compare']        = 'Add to Compare';
-$_['button_wishlist']       = 'Add to Wish List';
+$_['button_compare']        = 'Compare';
+$_['button_wishlist']       = 'Wish List';
 $_['button_checkout']       = 'Checkout';
 $_['button_confirm']        = 'Confirm Order';
 $_['button_coupon']         = 'Apply Coupon';

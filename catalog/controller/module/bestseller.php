@@ -1,11 +1,18 @@
 <?php
 class ControllerModuleBestSeller extends Controller {
 	protected function index($setting) {
+		static $module = 0;		
+		
 		$this->language->load('module/bestseller');
  
       	$this->data['heading_title'] = $this->language->get('heading_title');
+		
+		$this->data['text_sale'] = $this->language->get('text_sale');			
 				
 		$this->data['button_cart'] = $this->language->get('button_cart');
+		
+        $this->data['position'] = $setting['position'];
+		$this->data['layout_id'] = $setting['layout_id'];
 		
 		$this->load->model('catalog/product');
 		
@@ -44,6 +51,7 @@ class ControllerModuleBestSeller extends Controller {
 				'product_id' => $result['product_id'],
 				'thumb'   	 => $image,
 				'name'    	 => $result['name'],
+				'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 100) . '..',				
 				'price'   	 => $price,
 				'special' 	 => $special,
 				'rating'     => $rating,
@@ -51,6 +59,8 @@ class ControllerModuleBestSeller extends Controller {
 				'href'    	 => $this->url->link('product/product', 'product_id=' . $result['product_id']),
 			);
 		}
+		
+		$this->data['module'] = $module++; 
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/bestseller.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/module/bestseller.tpl';

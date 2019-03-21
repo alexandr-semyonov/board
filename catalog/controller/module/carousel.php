@@ -16,6 +16,9 @@ class ControllerModuleCarousel extends Controller {
 						
 		$this->data['limit'] = $setting['limit'];
 		$this->data['scroll'] = $setting['scroll'];
+		
+        $this->data['position'] = $setting['position'];
+		$this->data['layout_id'] = $setting['layout_id'];		
 				
 		$this->data['banners'] = array();
 		
@@ -26,7 +29,8 @@ class ControllerModuleCarousel extends Controller {
 				$this->data['banners'][] = array(
 					'title' => $result['title'],
 					'link'  => $result['link'],
-					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
+					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']),
+					'width' => $setting['width'],
 				);
 			}
 		}

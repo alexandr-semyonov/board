@@ -72,17 +72,10 @@ class ControllerProductCategory extends Controller {
 		$category_info = $this->model_catalog_category->getCategory($category_id);
 	
 		if ($category_info) {
-			if ($category_info['seo_title']) {
-		  		$this->document->setTitle($category_info['seo_title']);
-			} else {
-		  		$this->document->setTitle($category_info['name']);
-			}
-
+	  		$this->document->setTitle($category_info['name']);
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 			
-			$this->data['seo_h1'] = $category_info['seo_h1'];
-
 			$this->data['heading_title'] = $category_info['name'];
 			
 			$this->data['text_refine'] = $this->language->get('text_refine');
@@ -99,6 +92,7 @@ class ControllerProductCategory extends Controller {
 			$this->data['text_grid'] = $this->language->get('text_grid');
 			$this->data['text_sort'] = $this->language->get('text_sort');
 			$this->data['text_limit'] = $this->language->get('text_limit');
+			$this->data['text_sale'] = $this->language->get('text_sale');				
 					
 			$this->data['button_cart'] = $this->language->get('button_cart');
 			$this->data['button_wishlist'] = $this->language->get('button_wishlist');
@@ -135,14 +129,15 @@ class ControllerProductCategory extends Controller {
 			foreach ($results as $result) {
 				$data = array(
 					'filter_category_id'  => $result['category_id'],
-					'filter_sub_category' => true
+					'filter_sub_category' => true	
 				);
-				
-				$product_total = $this->model_catalog_product->getTotalProducts($data);				
+							
+				$product_total = $this->model_catalog_product->getTotalProducts($data);
+				$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
 				
 				$this->data['categories'][] = array(
 					'name'  => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
-					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
+					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url), 'thumb' => $image
 				);
 			}
 			
