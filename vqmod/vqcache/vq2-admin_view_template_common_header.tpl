@@ -49,6 +49,7 @@ $(document).ready(function(){
     });
 });
 </script>
+<script src="view/javascript/simonsaveandstay.js"></script>
 
 			<style type="text/css">
 				.list tbody .alt td {background-color: #F6F6F6;!important}

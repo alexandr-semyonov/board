@@ -1,0 +1,11 @@
+<modification>
+<id>simonsaveandstay</id>
+<version>1.0</version>
+<vqmver>2.3.2</vqmver>
+<file name="admin/view/template/common/header.tpl">
+<operation>
+<search position="before"><![CDATA[</head>]]></search>
+<add><![CDATA[<script src="view/javascript/simonsaveandstay.js"></script>]]></add>
+</operation>
+</file>
+</modification>
