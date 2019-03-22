@@ -1,0 +1,32 @@
+<modification>
+
+	<id>Admin jQuery Striped Tables</id>
+	<version>1.0.0</version>
+	<vqmver>1.0.8</vqmver>
+	<author>Author: Stalker780</author>
+
+	<file name="admin/view/template/common/header.tpl">
+        <operation>
+            <search position="replace"><![CDATA[
+			</head>
+            ]]></search>
+            <add><![CDATA[
+			<style type="text/css">
+				.list tbody .alt td {background-color: #F6F6F6;!important}
+				.list tbody .over td {background-color: #DFDFDF;!important}
+			</style>
+			<script type="text/javascript">
+				$(document).ready(function(){
+				//Striped table
+				try {
+					$(".list tbody tr").mouseover(function() {$(this).addClass("over");}).mouseout(function() {$(this).removeClass("over");});
+					$(".list tbody tr:even").addClass("alt");
+					}
+				  catch (err) {};
+				});
+			</script>
+			</head>
+            ]]></add>
+        </operation>
+	</file>
+</modification>
