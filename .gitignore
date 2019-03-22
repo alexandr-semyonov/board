@@ -11,7 +11,10 @@
 #doc/*.txt
 # игнорировать все .txt файлы в каталоге doc/
 #doc/**/*.txt
+#Эта удобная команда применяет rm ко всем файлам, указанным в .gitignore:
+#git rm --cached `git ls-files -i --exclude-from=.gitignore` 
 
-!system/library/config.php
-admin/config.php
-config.php
+
+denwer/
+/admin/config.php
+/config.php
