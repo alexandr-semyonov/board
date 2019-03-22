@@ -1,0 +1,8 @@
+2019-03-22 7:59:56 - PHP Notice:  Undefined index: active in Z:\home\board\www\catalog\view\theme\default\template\common\header.tpl on line 76
+2019-03-22 7:59:56 - PHP Notice:  Undefined index: active in Z:\home\board\www\catalog\view\theme\default\template\common\header.tpl on line 76
+2019-03-22 7:59:56 - PHP Notice:  Undefined index: active in Z:\home\board\www\catalog\view\theme\default\template\common\header.tpl on line 76
+2019-03-22 7:59:56 - PHP Notice:  Undefined index: active in Z:\home\board\www\catalog\view\theme\default\template\common\header.tpl on line 76
+2019-03-22 7:59:56 - PHP Notice:  Undefined index: active in Z:\home\board\www\catalog\view\theme\default\template\common\header.tpl on line 76
+2019-03-22 7:59:56 - PHP Notice:  Undefined index: active in Z:\home\board\www\catalog\view\theme\default\template\common\header.tpl on line 76
+2019-03-22 7:59:56 - PHP Notice:  Undefined index: active in Z:\home\board\www\catalog\view\theme\default\template\common\header.tpl on line 76
+2019-03-22 7:59:56 - PHP Notice:  Undefined index: active in Z:\home\board\www\catalog\view\theme\default\template\common\header.tpl on line 76
